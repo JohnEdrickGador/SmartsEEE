@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-// import { auth } from "../firebase";
-// import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { withRouter, Redirect } from "react-router";
+import { AuthContext } from "../auth";
 
-function Login() {
+export default function Login({ history }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,6 +15,11 @@ function Login() {
     const passwordHandler = (e) => {
         e.preventDefault();
         setPassword(e.target.value);
+    }
+
+    const loginHandler = (e) => {
+        e.preventDefault();
+
     }
 
     return (
@@ -30,5 +36,3 @@ function Login() {
         </div>
     )
 }
-
-export default Login
