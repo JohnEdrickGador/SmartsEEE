@@ -38,7 +38,6 @@ background: linear-gradient(90deg, rgba(249,154,147,1) 0%, rgba(249,196,130,1) 1
 }
 
 .login-form {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     text-align: center;

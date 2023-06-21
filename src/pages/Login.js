@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+// import { auth } from "../firebase";
+// import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const emailHandler = (e) => {
         e.preventDefault();
@@ -14,9 +16,6 @@ function Login() {
         setPassword(e.target.value);
     }
 
-    const signIn = () => {
-
-    }
     return (
         <div className="login-page">
             <div className="login-container">
