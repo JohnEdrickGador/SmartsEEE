@@ -1,27 +1,31 @@
 import React from 'react'
+import DataTile from './DataTile';
 
 export default function DataBoard() {
-  return (
-    <div className='databoard-container'>
-        <div className='databoard-parent'>
-            <div className='illuminance-container'>
-                div1
-            </div>
-            <div className='row2'>
-                <div className='am2320'>
-                    <div className='temp-container'>
-                        div2
+    const classNames = ['illuminance-container', 'temp-container', 'humid-container', 'motion-container'];
+
+    const tempApiReadKey = "placeholder";
+    const tempChannelId = "placeholder";
+
+    const lightApiReadKey = "placeholder";
+    const lightChannelId = "placeholder";
+
+    const gyroApiReadKey = "placeholder";
+    const gyroChannelId = "placeholder";
+
+    return (
+        <div className='databoard-container'>
+            <div className='databoard-parent'>
+                <DataTile className={classNames[0]} apiReadKey={lightApiReadKey} channelId={lightChannelId}/>
+                <div className='row2'>
+                    <div className='am2320'>
+                        <DataTile className={classNames[1]} apiReadKey={tempApiReadKey} channelId={tempChannelId}/>
+                        <DataTile className={classNames[2]} apiReadKey={tempApiReadKey} channelId={tempChannelId}/>
                     </div>
-                    <div className='humid-container'>
-                        div3
-                    </div>
-                </div>
-                <div className='motion-container'>
-                    div4
+                    <DataTile className={classNames[3]} apiReadKey={gyroApiReadKey} channelId={gyroChannelId}/>
                 </div>
             </div>
         </div>
-    </div>
 
-  )
+    )
 }
