@@ -4,14 +4,14 @@ import DataTile from './DataTile';
 export default function DataBoard() {
     const classNames = ['illuminance-container', 'temp-container', 'humid-container', 'motion-container'];
 
-    const tempApiReadKey = "placeholder";
-    const tempChannelId = "placeholder";
+    const tempApiReadKey = "WPAAONKTI1XJEUIB";
+    const tempChannelId = "2155390";
 
-    const lightApiReadKey = "placeholder";
-    const lightChannelId = "placeholder";
+    const lightApiReadKey = "0YIDYM3EUOH6MSGA";
+    const lightChannelId = "2199572";
 
-    const gyroApiReadKey = "placeholder";
-    const gyroChannelId = "placeholder";
+    const gyroApiReadKey = "WPAAONKTI1XJEUIB";
+    const gyroChannelId = "2155390";
 
     return (
         <div className='databoard-container'>
