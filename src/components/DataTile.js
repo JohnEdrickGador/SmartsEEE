@@ -8,9 +8,11 @@ export default function DataTile({className, apiReadKey, channelId}) {
     const units = ["Lx", "°C", "%"];
     const sensors = ["Light", "Temperature and Humidity", "Gyroscope"];
     var fieldData = "";
+    var fieldUnit = "";
     var sensor = "";
     var note = "";
     var timestamp = 0;
+    var tileName = "";
     var fetchTimeInterval = 3000;
 
     const sleep = (ms) => {
@@ -51,27 +53,45 @@ export default function DataTile({className, apiReadKey, channelId}) {
     }
 
     if (className == 'illuminance-container') {
-        fieldData = `${data.field1} ${units[0]}`;
+        fieldData = `200`;
+        fieldUnit = units[0];
+        tileName = "Illuminance";
     }
 
     else if (className == 'motion-container') {
-        fieldData = `${data.field2} motion`;
+        // fieldData = `${data.field2} motion`;
+        tileName = "Gyroscope and Accelerometer";
         if (data.field2 == 1) {
+            fieldData = "Motion is Detected!"
             note = "Movement Detected!";
             sensor = sensors[2];
             timestamp = serverTimestamp();
             addToLogs(note, sensor, timestamp);
         }
+        else {
+            fieldData = "Equipment is safe";
+        }
     }
 
-    else {
-        fieldData = `to follow`;
+    else if (className == 'temp-container') {
+        fieldData = `30`;
+        fieldUnit = units[1];
+        tileName = "Temperature";
+    }
+
+    else if (className == 'humid-container') {
+        fieldData = `69`;
+        fieldUnit = units[2];
+        tileName = "Humidity";
     }
 
     return (
-        <div className={className}>
-            {className}
-            <p>{fieldData}</p>
+        <div className = {className}>
+            <h2>{tileName}</h2>
+            <div className='tile-data-container'>
+                <p className='fieldData'>{fieldData}</p>
+                <p className='fieldUnit'>{fieldUnit}</p>
+            </div>
         </div>
     )
 }

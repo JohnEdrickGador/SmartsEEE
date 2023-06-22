@@ -19,7 +19,7 @@ export default function DashboardScreen() {
         })
     }
     return (
-        <div>
+        <div className='dashboard-screen'>
             <NavBar logOutHandler={logOutHandler}/>
             <DataBoard />
         </div>

@@ -1,5 +1,4 @@
 .databoard-container {
-    border: 1px solid blue;
     display: flex;
     justify-content: center;
     padding: 3em;
@@ -10,9 +9,15 @@
     display: flex;
     flex-direction: row;
     column-gap: 10px;
+    padding: 10px;
     justify-content: center;
     width: 60%;
-    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.databoard-parent h2 {
+    text-align: center;
+    padding: 0.5em;
 }
 
 .row2 {
@@ -21,7 +26,6 @@
     row-gap: 10px;
     height: 20em;
     width: 50%;
-    border: 1px solid green;
 }
 
 .am2320 {
@@ -31,25 +35,73 @@
 }
 
 .illuminance-container { 
-    border: 1px solid red;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
     height: 20em;
-    width: 50%; 
+    width: 50%;
+    display: flex;
+    flex-direction: column; 
 }
 
 .temp-container{ 
-    border: 1px solid orange;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
     height: 10em;
-    width: 50%; 
+    width: 50%;
+    display: flex;
+    flex-direction: column; 
 }
 
 .humid-container { 
-    border: 1px solid yellow;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
     height: 10em;
-    width: 50%;  
+    width: 50%;
+    display: flex;
+    flex-direction: column;  
 }
 
 .motion-container{ 
-    border: 1px solid green;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
     height: 10em;
-    width: 100%; 
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+
+.tile-data-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 40px;
+}
+
+.illuminance-container .tile-data-container {
+    font-size: 100px;
+}
+
+.fieldData {
+    font-weight: 700;
+}
+
+
+.motion-container .tile-data-container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    font-size: 30px;
 }

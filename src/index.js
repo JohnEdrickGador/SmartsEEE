@@ -4,6 +4,7 @@ import App from './App';
 import './styles/login.css';
 import './styles/navbar.css';
 import './styles/databoard.css';
+import './styles/dashboardscreen.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
