@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import { auth } from '../firebase';
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import DataBoard from './DataBoard';
 
 export default function DashboardScreen() {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function DashboardScreen() {
     return (
         <div>
             <NavBar logOutHandler={logOutHandler}/>
-            <h1>Welcome to your dashboard</h1>
+            <DataBoard />
         </div>
 
     )
