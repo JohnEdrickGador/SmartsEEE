@@ -19,19 +19,19 @@ export default function DataTile({className, apiReadKey, channelId}) {
         setTimeout(() => {}, ms);
     }
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const response = await fetch(`https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${apiReadKey}`);
-    //         const data = await response.json();
-    //         setData(data);
-    //     };
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${apiReadKey}`);
+            const data = await response.json();
+            setData(data);
+        };
 
-    //     const timer = setInterval(fetchData, fetchTimeInterval);
+        const timer = setInterval(fetchData, fetchTimeInterval);
 
-    //     return () => {
-    //         clearInterval(timer);
-    //     }
-    // }, []);
+        return () => {
+            clearInterval(timer);
+        }
+    }, []);
 
 
     async function addToLogs(note, sensor, timestamp) {
@@ -50,6 +50,14 @@ export default function DataTile({className, apiReadKey, channelId}) {
         // } catch (err) {
         //     console.log(err.message);
         // }
+    }
+
+    const resetMotion = async (e) => {
+        e.preventDefault();
+        const url = "https://api.thingspeak.com/update?api_key=OA1I757ZN0AAOW7U&field2=0";
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log("posted 1 to thingspeak");
     }
 
     if (className == 'illuminance-container') {
@@ -85,13 +93,29 @@ export default function DataTile({className, apiReadKey, channelId}) {
         tileName = "Humidity";
     }
 
-    return (
-        <div className = {className}>
-            <h2>{tileName}</h2>
-            <div className='tile-data-container'>
-                <p className='fieldData'>{fieldData}</p>
-                <p className='fieldUnit'>{fieldUnit}</p>
+    if (className == 'motion-container') {
+        return (
+            <div className = {className}>
+                <h2>{tileName}</h2>
+                <div className='tile-data-container'>
+                    <p className='fieldData'>{fieldData}</p>
+                    <p className='fieldUnit'>{fieldUnit}</p>
+                    {data.field2 == 1 && <button onClick={resetMotion}>REPAIRED</button>}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
+    else {
+        return (
+            <div className = {className}>
+                <h2>{tileName}</h2>
+                <div className='tile-data-container'>
+                    <p className='fieldData'>{fieldData}</p>
+                    <p className='fieldUnit'>{fieldUnit}</p>
+                </div>
+            </div>
+        )
+    }
+    
 }

@@ -1,6 +1,8 @@
 .databoard-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 3em;
     width: 100%;
 }
@@ -101,7 +103,28 @@
 
 .motion-container .tile-data-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     height: 100%;
     font-size: 30px;
+}
+
+.motion-container button {
+    font-family: 'montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    border: 2px solid red;
+    background-color: transparent;
+    border-radius: 10px;
+    width: 40%;
+    height: 2em;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.motion-container button:hover {
+    background-color: red;
+    color: white;
+    
 }
