@@ -1,20 +1,43 @@
-import React from 'react'
+import React, { useState }from 'react'
 
 export default function NavBar() {
-  return (
-    <div className='nav-bar'>
-        <div className='hamburger-lines'>
-            <span class="line line1"></span>
-            <span class="line line2"></span>
-            <span class="line line3"></span>
+
+    //to change classess
+    const [burgerClass, setBurgerClass] = useState("burger-bar unclicked"); 
+    const [menuClass, setMenuClass] = useState("menu hidden");
+    const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+    //toggle burger menu change
+    const updateMenu = (e) => {
+        e.preventDefault();
+        if (!isMenuClicked) {
+            setBurgerClass("burger-bar clicked");
+            setMenuClass("menu visible");
+        }
+        else {
+            setBurgerClass("burger-bar unclicked");
+            setMenuClass("menu hidden");
+        }
+        setIsMenuClicked(!isMenuClicked);
+
+    }
+    return (
+        <div className = "nav-container">
+            <nav>
+                <div className = "burger-menu" onClick={updateMenu}>
+                    <div className = {burgerClass}></div>
+                    <div className = {burgerClass}></div>
+                    <div className = {burgerClass}></div>
+                </div>
+                <h1 className='app-logo'>Room Monitoring Project</h1>
+                <div></div>
+            </nav>
+            <div className = {menuClass}>
+                <div className='directory'>
+                    <a href='/dashboard'>Dashboard</a>
+                    <a href='/'>Graphs</a>
+                </div>
+            </div>
         </div>
-        <div className='app-logo'>
-            <h1>Monitor</h1>
-        </div>
-        <div className='directory'>
-            <a href='/dashboard'>Dashboard</a>
-            <a href='#'>Graphs</a>
-        </div>
-    </div>
-  )
+    )
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { auth } from '../firebase';
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import DashboardScreen from '../components/DashboardScreen';
 
 export default function Dashboard() {
     const [user, setUser] = useState(null);
@@ -31,10 +32,7 @@ export default function Dashboard() {
     
     if (user) {
         return (
-            <div>
-               <h1>This is the dashboard page</h1>
-                <button onClick={ logOutHandler }>Logout</button>
-            </div>
+            <DashboardScreen />
         );
     }
 

@@ -1,0 +1,120 @@
+nav {
+    width: 100%;
+    height: 4em;
+    background-color: #f9c482;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.burger-menu {
+    height: 100%;
+    width: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.burger-bar {
+    width: 2em;
+    height: 0.5em;
+    background-color: black;
+    border-radius: 0.5em;
+}
+
+.menu {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 4em;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.directory {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.directory a {
+    text-decoration: none;
+    color: white;
+    margin: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+.app-logo {
+    font-family: 'Montserrat', sans-serif;
+    float: right;
+}
+
+/*menu animation*/
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s, visibility 0s 1s;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+/*clicked*/
+
+.burger-bar.clicked:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: top left;
+    transition: 0.5s ease-out;
+    width: 2.3em;
+}
+
+.burger-bar.clicked:nth-child(2) {
+    transform: scale(0.1);
+    transition: 0.5s ease-out;
+}
+
+.burger-bar.clicked:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    transition: 0.5s ease-out;
+    width: 2.3em;
+}
+
+/*unclicked*/
+
+.burger-bar.unclicked:nth-child(1) {
+    transform: rotate(0deg);
+    transition: 0.5s ease-out;
+}
+
+.burger-bar.unclicked:nth-child(2) {
+    transform: scale(1);
+    transition: 0.5s ease-out;
+}
+
+.burger-bar.unclicked:nth-child(3) {
+    transform: rotate(0deg);
+    transition: 0.5s ease-out;
+}
+
+
+
+
+
+
+
