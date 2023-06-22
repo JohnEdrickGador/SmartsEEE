@@ -54,6 +54,7 @@ nav {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
     text-align: center;
+    cursor: pointer;
 }
 
 .app-logo {

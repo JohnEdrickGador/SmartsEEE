@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 
-export default function NavBar() {
+export default function NavBar({logOutHandler}) {
 
     //to change classess
     const [burgerClass, setBurgerClass] = useState("burger-bar unclicked"); 
@@ -30,12 +30,13 @@ export default function NavBar() {
                     <div className = {burgerClass}></div>
                 </div>
                 <h1 className='app-logo'>Room Monitoring Project</h1>
-                <div></div>
+                <button onClick={logOutHandler}>Log Out</button>
             </nav>
             <div className = {menuClass}>
                 <div className='directory'>
                     <a href='/dashboard'>Dashboard</a>
                     <a href='/'>Graphs</a>
+                    <a onClick={logOutHandler}>Log Out</a>
                 </div>
             </div>
         </div>

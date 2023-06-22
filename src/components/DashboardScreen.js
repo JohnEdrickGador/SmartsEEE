@@ -1,12 +1,27 @@
-import React from 'react'
-import NavBar from './NavBar'
+import React from 'react';
+import NavBar from './NavBar';
+import { auth } from '../firebase';
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function DashboardScreen() {
-  return (
-    <div>
-        <NavBar />
-        <h1>Welcome to your dashboard</h1>
-    </div>
+    const navigate = useNavigate();
+    const logOutHandler = () => {
+        signOut(auth)
+        .then(() => {
+            console.log('signed out');
+            navigate('/login', {replace: true});
+        })
 
-  )
+        .catch((error) => {
+            alert(error.message);
+        })
+    }
+    return (
+        <div>
+            <NavBar logOutHandler={logOutHandler}/>
+            <h1>Welcome to your dashboard</h1>
+        </div>
+
+    )
 }
