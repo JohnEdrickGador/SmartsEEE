@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-//import { AuthContext } from "../auth";
+import { v4 as uuidv4 } from 'uuid';
+import {db} from '../firebase';
+import { doc, serverTimestamp, setDoc, collection } from 'firebase/firestore';
 
 export default function Login({ history }) {
     const [email, setEmail] = useState("");
@@ -19,11 +21,30 @@ export default function Login({ history }) {
         setPassword(e.target.value);
     }
 
+    async function addToLogs(email, timestamp) {
+        const logInData = {
+            Email: email,
+            TimeStamp: timestamp,
+            id: uuidv4(),
+        }
+
+        try {
+            const collectionRef = collection(db, 'login-history');
+            const logInDataRef = doc(collectionRef, logInData.id);
+            await setDoc(logInDataRef, logInData);
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
     const loginHandler = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredentials) => {
-            console.log(userCredentials);
+            console.log(userCredentials.user.email);
+            const email = userCredentials.user.email;
+            const time = serverTimestamp();
+            addToLogs(email, time);
             navigate("/", {replace: true})
         })
         .catch((error) => {
