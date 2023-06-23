@@ -4,6 +4,7 @@ nav {
     background-color: #f9c482;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1em;
 }
 
@@ -59,7 +60,7 @@ nav {
 
 .app-logo {
     font-family: 'Montserrat', sans-serif;
-    float: right;
+    text-align: center;
 }
 
 /*menu animation*/
@@ -113,7 +114,11 @@ nav {
     transition: 0.5s ease-out;
 }
 
-
+@media screen and (max-width: 500px) {
+    .app-logo {
+        font-size: 20px;
+    }
+}
 
 
 
