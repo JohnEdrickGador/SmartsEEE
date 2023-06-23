@@ -41,8 +41,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
             TimeStamp: timestamp,
             id: uuidv4(),
         }
-
-
+        
         // try {
         //     const collectionRef = collection(db, 'alert-logs');
         //     const logDataRef = doc(collectionRef, logData.id);
@@ -100,6 +99,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
                 <div className='tile-data-container'>
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>
+                    {/* <button onClick={resetMotion}>REPAIRED</button> */}
                     {data.field2 == 1 && <button onClick={resetMotion}>REPAIRED</button>}
                 </div>
             </div>
@@ -109,7 +109,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
     else {
         return (
             <div className = {className}>
-                <h2>{tileName}</h2>
+                <h2 className='tileName'>{tileName}</h2>
                 <div className='tile-data-container'>
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>

@@ -104,6 +104,7 @@
 .motion-container .tile-data-container {
     display: flex;
     flex-direction: column;
+    text-align: center;
     justify-content: center;
     height: 100%;
     font-size: 30px;
@@ -127,4 +128,94 @@
     background-color: red;
     color: white;
     
+}
+
+@media screen and (max-width: 1200px) {
+    .tile-data-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .databoard-parent {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        padding: 10px;
+        justify-content: center;
+        width: 80%;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .databoard-parent h2 {
+        text-align: center;
+        padding: 0.5em;
+        font-size: 20px;
+    }
+
+    .motion-container .tile-data-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        font-size: 25px;
+    }   
+}
+
+@media screen and (max-width: 1000px) {
+    .databoard-parent {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 5px;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .databoard-container {
+        padding: 0;
+    }
+
+    .databoard-parent {
+        height: 90vh;
+    }
+
+    .am2320 {
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+    .temp-container {
+        width: 100%;
+    }
+
+    .humid-container {
+        width: 100%;
+    }
+
+    .motion-container {
+        height: auto;
+    }
+
+    .motion-container button {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .databoard-parent {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .illuminance-container {
+        height: 10em;
+    }
+    .illuminance-container .tile-data-container{
+        font-size: 40px;
+    }
 }
