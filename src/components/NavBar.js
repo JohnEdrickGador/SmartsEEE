@@ -1,6 +1,21 @@
 import React, { useState }from 'react'
+import { auth } from '../firebase';
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-export default function NavBar({logOutHandler}) {
+export default function NavBar() {
+    const navigate = useNavigate();
+    const logOutHandler = () => {
+        signOut(auth)
+        .then(() => {
+            console.log('signed out');
+            navigate('/login', {replace: true});
+        })
+
+        .catch((error) => {
+            alert(error.message);
+        })
+    }
 
     //to change classess
     const [burgerClass, setBurgerClass] = useState("burger-bar unclicked"); 
