@@ -5,6 +5,7 @@ import './styles/login.css';
 import './styles/navbar.css';
 import './styles/databoard.css';
 import './styles/dashboardscreen.css';
+import './styles/graphscreen.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
