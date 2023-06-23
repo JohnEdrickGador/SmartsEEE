@@ -1,6 +1,3 @@
-import { doc, serverTimestamp, setDoc, collection } from 'firebase/firestore';
-import { v4 as uuidv4 } from 'uuid';
-import {db} from '../firebase';
 import React, { useState, useEffect } from 'react';
 
 export default function DataTile({className, apiReadKey, channelId}) {
@@ -9,9 +6,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
     const sensors = ["Light", "Temperature and Humidity", "Gyroscope"];
     var fieldData = "";
     var fieldUnit = "";
-    var sensor = "";
-    var note = "";
-    var timestamp = 0;
     var tileName = "";
     var fetchTimeInterval = 3000;
 
@@ -34,22 +28,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
     }, []);
 
 
-    async function addToLogs(note, sensor, timestamp) {
-        const logData = {
-            Note: note,
-            Sensor: sensor,
-            TimeStamp: timestamp,
-            id: uuidv4(),
-        }
-        
-        // try {
-        //     const collectionRef = collection(db, 'alert-logs');
-        //     const logDataRef = doc(collectionRef, logData.id);
-        //     await setDoc(logDataRef, logData);
-        // } catch (err) {
-        //     console.log(err.message);
-        // }
-    }
+
 
     const resetMotion = async (e) => {
         e.preventDefault();
@@ -70,10 +49,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
         tileName = "Gyroscope and Accelerometer";
         if (data.field2 == 1) {
             fieldData = "Motion is Detected!"
-            note = "Movement Detected!";
-            sensor = sensors[2];
-            timestamp = serverTimestamp();
-            addToLogs(note, sensor, timestamp);
         }
         else {
             fieldData = "Equipment is safe";
