@@ -30,7 +30,7 @@ export default function NavBar({logOutHandler}) {
                     <div className = {burgerClass}></div>
                 </div>
                 <h1 className='app-logo'>Room Monitoring Project</h1>
-                <button onClick={logOutHandler}>Log Out</button>
+                <button className='logout-btn' onClick={logOutHandler}>Log Out</button>
             </nav>
             <div className = {menuClass}>
                 <div className='directory'>

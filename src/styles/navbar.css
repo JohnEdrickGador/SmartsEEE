@@ -8,6 +8,25 @@ nav {
     padding: 1em;
 }
 
+.logout-btn {
+    border: 2px solid #60607D;
+    border-radius: 5px;
+    font-family: 'montserrat', sans-serif;
+    height: 100%;
+    width: 7em;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+    border: 2px solid #60607D;
+    border-radius: 5px;
+    color: white;
+    background-color: #60607D;
+    font-weight: 700;
+}
+
 .burger-menu {
     height: 100%;
     width: 2em;
@@ -61,6 +80,7 @@ nav {
 .app-logo {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    width: 70%;
 }
 
 /*menu animation*/
