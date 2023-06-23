@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { auth } from '../firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import GraphScreen from '../components/GraphScreen';
 
 export default function Graphs() {
     const [user, setUser] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -26,6 +25,8 @@ export default function Graphs() {
     }
 
     else {
-        navigate("/login");
+        return (
+            <Navigate replace to = "/login" />
+        );
     }
 }
