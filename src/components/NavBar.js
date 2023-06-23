@@ -35,7 +35,7 @@ export default function NavBar({logOutHandler}) {
             <div className = {menuClass}>
                 <div className='directory'>
                     <a href='/dashboard'>Dashboard</a>
-                    <a href='/'>Graphs</a>
+                    <a href='/graphs'>Graphs</a>
                     <a onClick={logOutHandler}>Log Out</a>
                 </div>
             </div>
