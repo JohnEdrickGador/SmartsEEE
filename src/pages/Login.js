@@ -45,7 +45,7 @@ export default function Login({ history }) {
             const email = userCredentials.user.email;
             const time = serverTimestamp();
             addToLogs(email, time);
-            navigate("/", {replace: true})
+            navigate("/");
         })
         .catch((error) => {
             alert(error.message);
