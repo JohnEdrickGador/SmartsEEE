@@ -39,7 +39,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
     }
 
     if (className == 'illuminance-container') {
-        fieldData = `200`;
+        fieldData = data.field1;
         fieldUnit = units[0];
         tileName = "Illuminance";
     }
