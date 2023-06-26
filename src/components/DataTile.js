@@ -56,13 +56,15 @@ export default function DataTile({className, apiReadKey, channelId}) {
     }
 
     else if (className == 'temp-container') {
-        fieldData = `30`;
+        fieldData = data.field1;
+        fieldData = Math.round(fieldData);
         fieldUnit = units[1];
         tileName = "Temperature";
     }
 
     else if (className == 'humid-container') {
-        fieldData = `69`;
+        fieldData = data.field2;
+        fieldData = Math.round(fieldData);
         fieldUnit = units[2];
         tileName = "Humidity";
     }

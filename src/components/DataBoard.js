@@ -4,8 +4,8 @@ import DataTile from './DataTile';
 export default function DataBoard() {
     const classNames = ['illuminance-container', 'temp-container', 'humid-container', 'motion-container'];
 
-    const tempApiReadKey = "WPAAONKTI1XJEUIB";
-    const tempChannelId = "2155390";
+    const tempApiReadKey = "9787H3IH8PZFJRXR";
+    const tempChannelId = "2160170";
 
     const lightApiReadKey = "0YIDYM3EUOH6MSGA";
     const lightChannelId = "2199572";
