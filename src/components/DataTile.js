@@ -13,6 +13,8 @@ export default function DataTile({className, apiReadKey, channelId}) {
         setTimeout(() => {}, ms);
     }
 
+    
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(`https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${apiReadKey}`);
@@ -26,9 +28,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
             clearInterval(timer);
         }
     }, []);
-
-
-
 
     const resetMotion = async (e) => {
         e.preventDefault();
@@ -56,15 +55,15 @@ export default function DataTile({className, apiReadKey, channelId}) {
     }
 
     else if (className == 'temp-container') {
-        fieldData = data.field1;
-        fieldData = Math.round(fieldData);
+        fieldData = data ? Number(data.field1) : 0.0;
+        fieldData = fieldData.toFixed(2);
         fieldUnit = units[1];
         tileName = "Temperature";
     }
 
     else if (className == 'humid-container') {
-        fieldData = data.field2;
-        fieldData = Math.round(fieldData);
+        fieldData = data ? Number(data.field2) : 0.0;
+        fieldData = fieldData.toFixed(2);
         fieldUnit = units[2];
         tileName = "Humidity";
     }
