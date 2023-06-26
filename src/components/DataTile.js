@@ -3,17 +3,14 @@ import React, { useState, useEffect } from 'react';
 export default function DataTile({className, apiReadKey, channelId}) {
     const [data, setData] = useState({});
     const units = ["Lx", "°C", "%"];
-    const sensors = ["Light", "Temperature and Humidity", "Gyroscope"];
     var fieldData = "";
     var fieldUnit = "";
     var tileName = "";
     var fetchTimeInterval = 3000;
 
-    const sleep = (ms) => {
-        setTimeout(() => {}, ms);
-    }
-
-    
+    // const sleep = (ms) => {
+    //     setTimeout(() => {}, ms);
+    // }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,16 +34,16 @@ export default function DataTile({className, apiReadKey, channelId}) {
         console.log("posted 1 to thingspeak");
     }
 
-    if (className == 'illuminance-container') {
+    if (className === 'illuminance-container') {
         fieldData = data.field1;
         fieldUnit = units[0];
         tileName = "Illuminance";
     }
 
-    else if (className == 'motion-container') {
+    else if (className === 'motion-container') {
         // fieldData = `${data.field2} motion`;
         tileName = "Gyroscope and Accelerometer";
-        if (data.field2 == 1) {
+        if (data.field2 === 1) {
             fieldData = "Motion is Detected!"
         }
         else {
@@ -54,21 +51,21 @@ export default function DataTile({className, apiReadKey, channelId}) {
         }
     }
 
-    else if (className == 'temp-container') {
+    else if (className === 'temp-container') {
         fieldData = data ? Number(data.field1) : 0.0;
         fieldData = fieldData.toFixed(2);
         fieldUnit = units[1];
         tileName = "Temperature";
     }
 
-    else if (className == 'humid-container') {
+    else if (className === 'humid-container') {
         fieldData = data ? Number(data.field2) : 0.0;
         fieldData = fieldData.toFixed(2);
         fieldUnit = units[2];
         tileName = "Humidity";
     }
 
-    if (className == 'motion-container') {
+    if (className === 'motion-container') {
         return (
             <div className = {className}>
                 <h2>{tileName}</h2>
@@ -76,7 +73,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>
                     {/* <button onClick={resetMotion}>REPAIRED</button> */}
-                    {data.field2 == 1 && <button onClick={resetMotion}>REPAIRED</button>}
+                    {data.field2 === 1 && <button onClick={resetMotion}>REPAIRED</button>}
                 </div>
             </div>
         )
