@@ -42,8 +42,10 @@ export default function DataTile({className, apiReadKey, channelId}) {
 
     else if (className === 'motion-container') {
         // fieldData = `${data.field2} motion`;
+        console.log(`latest motion value is ${data}`);
         tileName = "Gyroscope and Accelerometer";
-        if (data.field2 === 1) {
+        if (data.field2 == 1) {
+            
             fieldData = "Motion is Detected!"
         }
         else {
@@ -73,7 +75,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>
                     {/* <button onClick={resetMotion}>REPAIRED</button> */}
-                    {data.field2 === 1 && <button onClick={resetMotion}>REPAIRED</button>}
+                    {data.field2 == 1 && <button onClick={resetMotion}>REPAIRED</button>}
                 </div>
             </div>
         )
