@@ -41,7 +41,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
     }
 
     else if (className === 'motion-container') {
-        console.log(`latest motion value is ${data}`);
         tileName = "Gyroscope and Accelerometer";
         if (data.field2 == 1) {
             
