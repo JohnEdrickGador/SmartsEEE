@@ -71,7 +71,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
                 <div className='tile-data-container'>
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>
-                    {(data.field2 == 1) && <button onClick={resetMotion}>REPAIRED</button>}
+                    {(data.field1 == 1) && <button onClick={resetMotion}>REPAIRED</button>}
                 </div>
             </div>
         )
