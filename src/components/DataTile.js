@@ -85,6 +85,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>
                 </div>
+                <p className='time-stamp'>Last entry: {data.created_at}</p>
             </div>
         )
     }
