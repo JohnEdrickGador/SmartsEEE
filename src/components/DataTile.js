@@ -31,7 +31,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
         const url = "https://api.thingspeak.com/update?api_key=OA1I757ZN0AAOW7U&field1=0";
         const response = await fetch(url);
         const data = await response.json();
-        console.log("posted 1 to thingspeak");
     }
 
     if (className === 'illuminance-container') {
