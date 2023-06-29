@@ -6,7 +6,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
     var fieldData = "";
     var fieldUnit = "";
     var tileName = "";
-    var isButtonVisible = false;
     var fetchTimeInterval = 1000;
 
     // const sleep = (ms) => {
@@ -18,16 +17,6 @@ export default function DataTile({className, apiReadKey, channelId}) {
             const response = await fetch(`https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${apiReadKey}`);
             const data = await response.json();
             setData(data);
-            
-            if (className === 'motion-container') {
-                if (data.field2 == 0) {
-                    isButtonVisible = false;
-                }
-
-                else {
-                    isButtonVisible = true;
-                }
-            }
         };
 
         const timer = setInterval(fetchData, fetchTimeInterval);
@@ -53,7 +42,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
 
     else if (className === 'motion-container') {
         tileName = "Gyroscope and Accelerometer";
-        if (data.field2 == 1 || data.field2 == null) {
+        if (data.field1 == 1) {
             fieldData = "Motion is Detected!"
         }
         else {
@@ -82,7 +71,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
                 <div className='tile-data-container'>
                     <p className='fieldData'>{fieldData}</p>
                     <p className='fieldUnit'>{fieldUnit}</p>
-                    {(isButtonVisible === true) && <button onClick={resetMotion}>REPAIRED</button>}
+                    {(data.field2 == 1) && <button onClick={resetMotion}>REPAIRED</button>}
                 </div>
             </div>
         )
