@@ -4,6 +4,8 @@ import { auth } from '../firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import DashboardScreen from '../components/DashboardScreen';
 
+export const UserContext = React.createContext();
+
 export default function Dashboard() {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
@@ -22,7 +24,9 @@ export default function Dashboard() {
     
     if (user) {
         return (
-            <DashboardScreen/>
+            <UserContext.Provider value={user}>
+                <DashboardScreen/>
+            </UserContext.Provider>
         );
     }
 

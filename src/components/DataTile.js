@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import {db} from '../firebase';
+import { doc, serverTimestamp, setDoc, collection } from 'firebase/firestore';
+import { UserContext } from '../pages/Dashboard';
 
 export default function DataTile({className, apiReadKey, channelId}) {
     const [data, setData] = useState({});
@@ -7,10 +11,7 @@ export default function DataTile({className, apiReadKey, channelId}) {
     var fieldUnit = "";
     var tileName = "";
     var fetchTimeInterval = 1000;
-
-    // const sleep = (ms) => {
-    //     setTimeout(() => {}, ms);
-    // }
+    const user = useContext(UserContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,11 +27,29 @@ export default function DataTile({className, apiReadKey, channelId}) {
         }
     }, []);
 
+    async function addToRepairLogs(email, timestamp) {
+        const RepairData = {
+            Email: email,
+            TimeStamp: timestamp,
+            id: uuidv4(),
+            task: "Tagged latest issue as repaired",
+        }
+
+        try {
+            const collectionRef = collection(db, 'repair-logs');
+            const logInDataRef = doc(collectionRef, RepairData.id);
+            await setDoc(logInDataRef, RepairData);
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
     const resetMotion = async (e) => {
         e.preventDefault();
         const url = "https://api.thingspeak.com/update?api_key=OA1I757ZN0AAOW7U&field1=0";
         const response = await fetch(url);
         const data = await response.json();
+        addToRepairLogs(user.email, serverTimestamp());        
     }
 
     if (className === 'illuminance-container') {
