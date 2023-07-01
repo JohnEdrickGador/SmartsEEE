@@ -229,7 +229,7 @@
 
 @media screen and (max-width: 500px) {
     .illuminance-container {
-        height: 10em;
+        height: 15em;
     }
     .illuminance-container .tile-data-container{
         font-size: 40px;
