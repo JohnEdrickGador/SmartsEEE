@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {db} from '../firebase';
 import { doc, serverTimestamp, setDoc, collection } from 'firebase/firestore';
 
-export default function Login({ history }) {
+export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
