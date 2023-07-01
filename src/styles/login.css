@@ -33,7 +33,10 @@
 }
 
 .login-cover {
-    background-color: #60607d;
+    /* background-color: #60607d; */
+    background-image: url("/public/smartseee_bg.png");
+    background-position: center;
+    background-size: cover;
     border-radius: 10px 0 0 10px ;
     height: 100%;
     width: 60%;

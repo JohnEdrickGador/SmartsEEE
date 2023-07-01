@@ -56,8 +56,8 @@ export default function Login() {
         <div className="login-page">
             <div className="login-container">
                 <div className="login-cover">
-                    <h1 className="login-logo">SmartsEEE</h1>
-                    <p>Smart Security and Monitoring System</p>
+                    {/* <h1 className="login-logo">SmartsEEE</h1>
+                    <p>Smart Security and Monitoring System</p> */}
                 </div>
                 <div className="login-fields">
                     <h1 className="login-title">Log in with an admin account</h1>
