@@ -65,7 +65,7 @@ export default function Login({ history }) {
                         <input type = "text" name = "email" id = "email" placeholder = "Email Address" value = {email} onChange={emailHandler}></input>
                         <input type = "password" name = "password" id = "password" placeholder = "Password" value = {password} onChange={passwordHandler}></input>
                         <button type = "submit" className = "login-btn" onClick={ loginHandler }>Login</button>
-                        <a href = "#" className = "account-apply">No account yet? Apply here</a>
+                        <a href = "https://forms.gle/BbNeeNNMM7PUdPJe8" target="_blank" className = "account-apply">No account yet? Apply here</a>
                     </form>
                 </div>
             </div>
